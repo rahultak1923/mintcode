@@ -11,3 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.logo{
+      border: 1px white;
+    border-radius: 10px;
+}
+
+.navbar-r{
+  padding: 6px 0px !important;
+}
+
+.text-purple {
+  color: rgb(122, 54, 250);
+}
+
+.text-pink {
+  color: #d63384;
+}
+.container1400{
+  max-width: 1400px;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .d-md-block.d-block {
+    position: absolute;
+    z-index: 1000;
+    background: white;
+    height: 100vh;
+    width: 250px;
+  }
+}
