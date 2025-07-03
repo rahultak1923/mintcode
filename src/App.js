@@ -1,37 +1,59 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Sidenavbar from './components/Sidenavbar';
-import Home from './pages/Home';
 import Rightnavbar from './components/Rightnavbar';
+import Home from './pages/Home';
+import Main from './pages/Main';
 import { useState } from 'react';
+import React from './pages/Reactjs';
 
-
-function App() {
+// Wrapper component to access route inside App
+function LayoutWrapper() {
+  const location = useLocation();
+  const isMainPage = location.pathname === '/';
   const [showSidebars, setShowSidebars] = useState(false);
-    const toggleSidebars = () => {
+
+  const toggleSidebars = () => {
     setShowSidebars(!showSidebars);
   };
+
   return (
-    <Router>
-       <div className="">
+    <>
       <Navbar onMenuClick={toggleSidebars} />
 
-      <div className="d-flex container1400">
-        {/* Show sidebars only if toggled OR on desktop */}
-        <div className={`d-none d-md-block ${showSidebars ? 'd-block' : ''}`}>
-          <Sidenavbar />
-        </div>
+      {/* Only show sidebars and layout for non-main pages */}
+      {!isMainPage ? (
+        <div className="d-flex container1400">
+          <div className={`d-none d-md-block ${showSidebars ? 'd-block' : ''}`}>
+            <Sidenavbar />
+          </div>
 
-        <div className="flex-grow-1">
-          <Home />
-        </div>
+          <div className="flex-grow-1">
+            <Routes>
+              <Route path="/home" element={<Home />} />
+              <Route path="/reactjs" element={<React />} />
+              {/* Add more routes here */}
+            </Routes>
+          </div>
 
-        <div className={`d-none d-md-block ${showSidebars ? 'd-block' : ''}`}>
-          <Rightnavbar />
+          <div className={`d-none d-md-block ${showSidebars ? 'd-block' : ''}`}>
+            <Rightnavbar />
+          </div>
         </div>
-      </div>
-    </div>
+      ) : (
+        <Routes>
+          <Route path="/" element={<Main />} />
+        </Routes>
+      )}
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <LayoutWrapper />
     </Router>
   );
 }
