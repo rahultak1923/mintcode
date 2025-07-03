@@ -3,7 +3,7 @@ import logo from './logo.png';
 
 const Navbar = ({ onMenuClick }) => {
   return (
-    <nav class="navbar   navbar-expand-lg border-body navbar-r shadow" data-bs-theme="dark" style={{ background: "rgb(122, 54, 250)" }}>
+    <nav class="navbar   navbar-expand-lg border-body navbar-r shadow sticky-top" data-bs-theme="dark" style={{ background: "rgb(122, 54, 250)" }}>
 
 {/* <nav className="navbar bg-dark navbar-expand-lg" style={{ background: "rgb(122, 54, 250)" }}> */}
       <div className="container-fluid container">

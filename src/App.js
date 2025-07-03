@@ -29,7 +29,7 @@ function LayoutWrapper() {
             <Sidenavbar />
           </div>
 
-          <div className="flex-grow-1">
+          <div className="flex-grow-1 overflow-auto">
             <Routes>
               <Route path="/home" element={<Home />} />
               <Route path="/reactjs" element={<React />} />
