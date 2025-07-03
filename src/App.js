@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Main from './pages/Main';
 import { useState } from 'react';
 import React from './pages/Reactjs';
+import Homebackend from './pages/backend/Homebackend';
 
 // Wrapper component to access route inside App
 function LayoutWrapper() {
@@ -33,6 +34,7 @@ function LayoutWrapper() {
             <Routes>
               <Route path="/home" element={<Home />} />
               <Route path="/reactjs" element={<React />} />
+              <Route path="/backendhome" element={<Homebackend />} />
               {/* Add more routes here */}
             </Routes>
           </div>
