@@ -35,18 +35,55 @@ code {
   margin: auto;
 }
 
-@media (max-width: 768px) {
-  .d-md-block.d-block {
-    position: absolute;
-    z-index: 1000;
-    background: white;
-    height: 100vh;
-    width: 250px;
+/* Sidebar overlay behavior for mobile */
+.sidebar-overlay {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .sidebar-overlay {
+    display: block !important;
+    position: static;
+    z-index: auto;
   }
 }
+
+@media (max-width: 767px) {
+  .sidebar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1051;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+  }
+
+  .sidebar-overlay.show {
+    display: block;
+    transform: translateX(0);
+  }
+
+  /* Backdrop behind the sidebar */
+  .mobile-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1050;
+  }
+}
+
+
 
 .main {
   background-color: #367dfa17;
   height: 80vh;
   width: 100%;
 }
+

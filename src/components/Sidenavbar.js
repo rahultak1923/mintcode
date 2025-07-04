@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Sidenavbar = () => {
   return (
     <div
-      className="d-flex flex-column align-items-stretch flex-shrink-0 bg-white px-3 mt-3 border-end"
+      className="d-flex flex-column align-items-stretch flex-shrink-0 bg-white px-3 pt-3 border-end"
       style={{ width: "280px", height: "90vh" }}
     >
       <div className="overflow-auto" style={{ height: "calc(100vh - 60px)" }}>

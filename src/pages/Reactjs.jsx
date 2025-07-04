@@ -22,7 +22,7 @@ const Reactjs = () => {
   }, []);
 
   return (
-    <div className="container" style={{height : "90vh"}} >
+    <div className="container" style={{height : "89vh"}} >
       <div className="mt-2">
         <h4 className="display-6 fw-bold mb-3">ReactJs</h4>
         <p className="lead text-muted">

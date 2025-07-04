@@ -6,7 +6,7 @@ import Rightnavbar from './components/Rightnavbar';
 import Home from './pages/Home';
 import Main from './pages/Main';
 import { useState } from 'react';
-import React from './pages/Reactjs';
+import Reactjs from './pages/Reactjs';
 import Homebackend from './pages/backend/Homebackend';
 import Sidenavbarbackend from './components/Sidenavbarbackend';
 import Nodejs from './pages/backend/Nodejs';
@@ -17,62 +17,62 @@ import Flex from './pages/Flex';
 import JustifyContent from './pages/JustifyContent';
 import AlignItem from './pages/AlignItem';
 
-// Wrapper component to access route inside App
+// LayoutWrapper for routing + sidebar logic
 function LayoutWrapper() {
   const location = useLocation();
   const isMainPage = location.pathname === '/';
-  const isBackendPage = location.pathname.startsWith('/backendhome')
-  const [showSidebars, setShowSidebars] = useState(false);
+  const isBackendPage = location.pathname.startsWith('/backendhome');
 
-  const toggleSidebars = () => {
-    setShowSidebars(!showSidebars);
+  const [showSidebar, setShowSidebar] = useState(false); // only for left sidebar
+
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
   };
 
   return (
     <>
-      <Navbar onMenuClick={toggleSidebars} />
+      <Navbar onMenuClick={toggleSidebar} />
 
-      {/* Only show sidebars and layout for non-main pages */}
-      {!isMainPage ? (
-        <div className="d-flex container1400">
-          {!isBackendPage? (
-            
-            <div className={`d-none d-md-block ${showSidebars ? 'd-block' : ''}`}>
-            <Sidenavbar />
-          </div>
-          ):(
-            <div className={`d-none d-md-block ${showSidebars ? 'd-block' : ''}`}>
-            <Sidenavbarbackend />
-          </div>
-          )}
+   {!isMainPage ? (
+  <div className="d-flex container1400 position-relative">
+    {/* BACKDROP: only visible on mobile when sidebar is open */}
+    {showSidebar && (
+      <div className="mobile-backdrop" onClick={() => setShowSidebar(false)}></div>
+    )}
 
-          <div className="flex-grow-1 overflow-auto">
-            <Routes>
-              <Route path="/home" element={<Home />} />
-              <Route path="/reactjs" element={<React />} />
-              <Route path="/class" element={<Class />} />
-              <Route path="/background" element={<Background />} />
-              <Route path="/border" element={<Border />} />
-              <Route path="/flex" element={<Flex />} />
-              <Route path="/justifycontent" element={<JustifyContent />} />
-              <Route path='/alignitem' element={<AlignItem/>}/>
+    {/* LEFT Sidebar Overlay */}
+    <div className={`sidebar-overlay ${showSidebar ? 'show' : ''}`}>
+      {!isBackendPage ? <Sidenavbar /> : <Sidenavbarbackend />}
+    </div>
 
-              {/* this backend file */}
-              <Route path="/backendhome" element={<Homebackend />} />
-              <Route path="/backendhome/nodejs" element={<Nodejs />} />
-              {/* Add more routes here */}
-            </Routes>
-          </div>
+    {/* Main Content */}
+    <div className="flex-grow-1 overflow-auto">
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/reactjs" element={<Reactjs />} />
+        <Route path="/class" element={<Class />} />
+        <Route path="/background" element={<Background />} />
+        <Route path="/border" element={<Border />} />
+        <Route path="/flex" element={<Flex />} />
+        <Route path="/justifycontent" element={<JustifyContent />} />
+        <Route path="/alignitem" element={<AlignItem />} />
+        <Route path="/backendhome" element={<Homebackend />} />
+        <Route path="/backendhome/nodejs" element={<Nodejs />} />
+      </Routes>
+    </div>
 
-          <div className={`d-none d-md-block ${showSidebars ? 'd-block' : ''}`}>
-            <Rightnavbar />
-          </div>
-        </div>
-      ) : (
-        <Routes>
-          <Route path="/" element={<Main />} />
-        </Routes>
-      )}
+    {/* Right Sidebar only on desktop */}
+    <div className="d-none d-md-block">
+      <Rightnavbar />
+    </div>
+  </div>
+) : (
+  <Routes>
+    <Route path="/" element={<Main />} />
+  </Routes>
+)}
+
+
     </>
   );
 }
