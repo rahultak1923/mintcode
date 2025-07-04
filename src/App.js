@@ -15,6 +15,7 @@ import Background from './pages/Background';
 import Border from './pages/Border';
 import Flex from './pages/Flex';
 import JustifyContent from './pages/JustifyContent';
+import AlignItem from './pages/AlignItem';
 
 // Wrapper component to access route inside App
 function LayoutWrapper() {
@@ -54,6 +55,7 @@ function LayoutWrapper() {
               <Route path="/border" element={<Border />} />
               <Route path="/flex" element={<Flex />} />
               <Route path="/justifycontent" element={<JustifyContent />} />
+              <Route path='/alignitem' element={<AlignItem/>}/>
 
               {/* this backend file */}
               <Route path="/backendhome" element={<Homebackend />} />

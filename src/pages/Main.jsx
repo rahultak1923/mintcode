@@ -16,7 +16,7 @@ const Main = () => {
           />
           <div className="mt-3 text-center">
 
-      <h1>Build fast, responsive sites </h1>
+      <h1>Build fast, Website Developement </h1>
       <h1>with CodeMint</h1>
           </div>
     </div>

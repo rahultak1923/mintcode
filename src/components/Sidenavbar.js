@@ -35,7 +35,7 @@ const Sidenavbar = () => {
           </h6>
           <ul className="list-unstyled ps-3">
             {[
-              "Flex","JustifyContent", "Border", "Background"
+              "Flex","JustifyContent","AlignItem", "Border", "Background"
             ].map((item, index) => (
               <li key={index}>
                 <Link
