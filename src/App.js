@@ -10,6 +10,8 @@ import React from './pages/Reactjs';
 import Homebackend from './pages/backend/Homebackend';
 import Sidenavbarbackend from './components/Sidenavbarbackend';
 import Nodejs from './pages/backend/Nodejs';
+import Class from './pages/Class';
+import Background from './pages/Background';
 
 // Wrapper component to access route inside App
 function LayoutWrapper() {
@@ -44,6 +46,8 @@ function LayoutWrapper() {
             <Routes>
               <Route path="/home" element={<Home />} />
               <Route path="/reactjs" element={<React />} />
+              <Route path="/class" element={<Class />} />
+              <Route path="/background" element={<Background />} />
 
               {/* this backend file */}
               <Route path="/backendhome" element={<Homebackend />} />

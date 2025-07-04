@@ -15,7 +15,7 @@ const Sidenavbar = () => {
           </h6>
           <ul className="list-unstyled ps-3">
             {[
-              "Reactjs", "Download", "Contents", "BrowsersDevices",
+              "Reactjs", "Class", "Background", "BrowsersDevices",
               "JavaScript", "Webpack", "Parcel", "Vite", "Accessibility", "RFS", "RTL", "Contribute"
             ].map((item, index) => (
               <li key={index}>
