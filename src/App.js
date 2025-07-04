@@ -12,6 +12,9 @@ import Sidenavbarbackend from './components/Sidenavbarbackend';
 import Nodejs from './pages/backend/Nodejs';
 import Class from './pages/Class';
 import Background from './pages/Background';
+import Border from './pages/Border';
+import Flex from './pages/Flex';
+import JustifyContent from './pages/JustifyContent';
 
 // Wrapper component to access route inside App
 function LayoutWrapper() {
@@ -48,6 +51,9 @@ function LayoutWrapper() {
               <Route path="/reactjs" element={<React />} />
               <Route path="/class" element={<Class />} />
               <Route path="/background" element={<Background />} />
+              <Route path="/border" element={<Border />} />
+              <Route path="/flex" element={<Flex />} />
+              <Route path="/justifycontent" element={<JustifyContent />} />
 
               {/* this backend file */}
               <Route path="/backendhome" element={<Homebackend />} />

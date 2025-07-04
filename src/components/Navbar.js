@@ -10,6 +10,8 @@ const Navbar = ({ onMenuClick }) => {
   // ✅ Map keyword to corresponding routes
   const topicRouteMap = {
     react: '/reactjs',
+    border:'/border',
+    flex:'/flex',
     backend: '/backendhome',
     nodejs: '/backendhome',
     home: '/home',
