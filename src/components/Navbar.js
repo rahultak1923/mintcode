@@ -2,18 +2,22 @@ import React, { useState } from 'react';
 import logo from './logo.png';
 import { useNavigate, useLocation } from 'react-router-dom';
 
+
+
 const Navbar = ({ onMenuClick }) => {
+  
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
+  const { pathname } = location;
 
   // ✅ Map keyword to corresponding routes
   const topicRouteMap = {
     react: '/reactjs',
     border:'/border',
     flex:'/flex',
-    backend: '/backendhome',
-    nodejs: '/backendhome',
+    backend: '/document',
+    nodejs: '/nodejs',
     home: '/home',
     javascript: '/reactjs',
     overview: '/backendhome',
@@ -80,9 +84,22 @@ const Navbar = ({ onMenuClick }) => {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item"><a className="nav-link active" href="/home">Home</a></li>
-            <li className="nav-item"><a className="nav-link" href="/backendhome">Backend</a></li>
-          </ul>
+          <li className="nav-item">
+    <a
+      className={`nav-link ${pathname === '/home' ? 'active' : ''}`}
+      href="/home"
+    >
+      Home
+    </a>
+  </li>
+<li className="nav-item">
+    <a
+      className={`nav-link ${pathname === '/document/document' ? 'active' : ''}`}
+      href="/document/document"
+    >
+      Backend
+    </a>
+  </li>          </ul>
 
           <form className="d-flex" role="search" onSubmit={handleSearch}>
             <input

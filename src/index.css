@@ -87,3 +87,8 @@ code {
   width: 100%;
 }
 
+.bg-primary-custome{
+   background-color: #063ca324 !important; /* custom blue transparent */
+  color: #063ca3 !important;
+  font-weight: 500;
+}

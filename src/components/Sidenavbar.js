@@ -1,7 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Sidenavbar = () => {
+  const location = useLocation();
+  const { pathname } = location;
+
+  const isActive = (path) => pathname === path;
+
   return (
     <div
       className="d-flex flex-column align-items-stretch flex-shrink-0 bg-white px-3 pt-3 border-end"
@@ -14,38 +19,45 @@ const Sidenavbar = () => {
             <i className="bi bi-book-fill me-2 text-purple"></i>Getting started
           </h6>
           <ul className="list-unstyled ps-3">
-            {[
-              "Reactjs", "Class", "Background"
-            ].map((item, index) => (
-              <li key={index}>
-                <Link
-                  to={`/${item.toLowerCase().replace(/\s+/g, '')}`}
-                  className="text-body d-block py-1 small text-decoration-none"
-                >
-                  {item}
-                </Link>
-              </li>
-            ))}
+            {["Reactjs", "Class", "Background"].map((item, index) => {
+              const path = `/${item.toLowerCase().replace(/\s+/g, '')}`;
+              return (
+                <li key={index}>
+                  <Link
+                    to={path}
+                    className={`d-block py-1 small text-decoration-none text-body px-2 rounded ${
+                      isActive(path) ? 'bg-primary-custome text-white' : ''
+                    }`}
+                  >
+                    {item}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
+
         {/* Section 2 */}
         <div className="mb-4">
           <h6 className="text-success fw-semibold mb-2" style={{ fontSize: "0.95rem" }}>
             <i className="bi bi-book-fill me-2 text-success"></i>Utilities
           </h6>
           <ul className="list-unstyled ps-3">
-            {[
-              "Flex","JustifyContent","AlignItem", "Border", "Background"
-            ].map((item, index) => (
-              <li key={index}>
-                <Link
-                  to={`/${item.toLowerCase().replace(/\s+/g, '')}`}
-                  className="text-body d-block py-1 small text-decoration-none"
-                >
-                  {item}
-                </Link>
-              </li>
-            ))}
+            {["Flex", "JustifyContent", "AlignItem", "Border", "Background"].map((item, index) => {
+              const path = `/${item.toLowerCase().replace(/\s+/g, '')}`;
+              return (
+                <li key={index}>
+                  <Link
+                    to={path}
+                    className={`d-block py-1 small text-decoration-none text-body px-2 rounded ${
+                      isActive(path) ? 'bg-primary-custome text-white' : ''
+                    }`}
+                  >
+                    {item}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
@@ -56,17 +68,22 @@ const Sidenavbar = () => {
           </h6>
           <ul className="list-unstyled ps-3">
             {[
-              "Overview", "Sass", "Options", "Color", "ColorModes", "Components", "CSSVariables","Overview", "Sass", "Options", "Color", "ColorModes", "Components", "CSSVariables","Overview", "Sass", "Options", "Color", "ColorModes", "Components", "CSSVariables"
-            ].map((item, index) => (
-              <li key={index}>
-                <Link
-                  to={`/${item.toLowerCase().replace(/\s+/g, '')}`}
-                  className="text-body d-block py-1 small text-decoration-none"
-                >
-                  {item}
-                </Link>
-              </li>
-            ))}
+              "Overview", "Sass", "Options", "Color", "ColorModes", "Components", "CSSVariables"
+            ].map((item, index) => {
+              const path = `/${item.toLowerCase().replace(/\s+/g, '')}`;
+              return (
+                <li key={index}>
+                  <Link
+                    to={path}
+                    className={`d-block py-1 small text-decoration-none text-body px-2 rounded ${
+                      isActive(path) ? 'bg-primary-custome text-white' : ''
+                    }`}
+                  >
+                    {item}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

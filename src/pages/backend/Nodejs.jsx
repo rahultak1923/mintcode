@@ -48,12 +48,27 @@ const Nodejs = () => {
         <div className="mt-4">
           <pre className="language-js">
             <code>
-{`// Example of ReactJS code block
-console.log("Hello");
-const a = 10;
-if (a > 5) {
-  console.log("a is greater than 5");
-}`}
+{`// Example of Nodejs code Create User Model
+const { Schema, model } = require("mongoose");
+
+const userSchema = new Schema({
+    fullname:{
+        type:String,
+        required:true,
+    },
+    email:{
+        type:String,
+        required:true,
+    },
+    password:{
+        type:String,
+        required:true,
+    }
+},{timestamps:true})
+
+const User = model('user',userSchema);
+
+module.exports = User;`}
             </code>
           </pre>
         </div>

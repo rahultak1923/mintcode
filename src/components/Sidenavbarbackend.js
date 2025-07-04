@@ -15,12 +15,12 @@ const Sidenavbarbackend = () => {
           </h6>
           <ul className="list-unstyled ps-3">
             {[
-              "Nodejs", "backend", "Contents", "BrowsersDevices",
+              "Document", "Nodejs", "Contents", "BrowsersDevices",
               "JavaScript", "Webpack", "Parcel", "Vite", "Accessibility", "RFS", "RTL", "Contribute"
             ].map((item, index) => (
               <li key={index}>
                 <Link
-                  to={`/backendhome/${item.toLowerCase().replace(/\s+/g, '')}`}
+                  to={`/document/${item.toLowerCase().replace(/\s+/g, '')}`}
                   className="text-body d-block py-1 small text-decoration-none"
                 >
                   {item}

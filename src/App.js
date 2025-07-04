@@ -21,7 +21,7 @@ import AlignItem from './pages/AlignItem';
 function LayoutWrapper() {
   const location = useLocation();
   const isMainPage = location.pathname === '/';
-  const isBackendPage = location.pathname.startsWith('/backendhome');
+  const isBackendPage = location.pathname.startsWith('/document');
 
   const [showSidebar, setShowSidebar] = useState(false); // only for left sidebar
 
@@ -56,8 +56,10 @@ function LayoutWrapper() {
         <Route path="/flex" element={<Flex />} />
         <Route path="/justifycontent" element={<JustifyContent />} />
         <Route path="/alignitem" element={<AlignItem />} />
-        <Route path="/backendhome" element={<Homebackend />} />
-        <Route path="/backendhome/nodejs" element={<Nodejs />} />
+
+        {/* backend sidenavbar */}
+        <Route path="/document/document" element={<Homebackend />} />
+        <Route path="/document/nodejs" element={<Nodejs />} />
       </Routes>
     </div>
 
