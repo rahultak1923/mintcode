@@ -86,6 +86,12 @@ code {
   height: 35vw;
   width: 100%;
 }
+@media (max-width:767px) {
+  .main{
+    height: 130vw;
+  }
+  
+}
 
 .bg-primary-custome{
    background-color: #063ca324 !important; /* custom blue transparent */
