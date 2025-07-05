@@ -19,7 +19,7 @@ const Sidenavbar = () => {
             <i className="bi bi-book-fill me-2 text-purple"></i>Getting started
           </h6>
           <ul className="list-unstyled ps-3">
-            {["Reactjs", "Class", "Background"].map((item, index) => {
+            {["Home","Reactjs", "Class", "Background"].map((item, index) => {
               const path = `/${item.toLowerCase().replace(/\s+/g, '')}`;
               return (
                 <li key={index}>

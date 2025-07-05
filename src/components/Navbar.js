@@ -16,8 +16,8 @@ const Navbar = ({ onMenuClick }) => {
     react: '/reactjs',
     border:'/border',
     flex:'/flex',
-    backend: '/document',
-    nodejs: '/nodejs',
+    backend: '/document/document',
+    nodejs: 'document/nodejs',
     home: '/home',
     javascript: '/reactjs',
     overview: '/backendhome',
@@ -89,7 +89,7 @@ const Navbar = ({ onMenuClick }) => {
       className={`nav-link ${pathname === '/home' ? 'active' : ''}`}
       href="/home"
     >
-      Home
+      Frontend
     </a>
   </li>
 <li className="nav-item">
