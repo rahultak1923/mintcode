@@ -16,6 +16,7 @@ import Border from './pages/Border';
 import Flex from './pages/Flex';
 import JustifyContent from './pages/JustifyContent';
 import AlignItem from './pages/AlignItem';
+import Active from './pages/Active';
 
 // LayoutWrapper for routing + sidebar logic
 function LayoutWrapper() {
@@ -56,6 +57,7 @@ function LayoutWrapper() {
         <Route path="/flex" element={<Flex />} />
         <Route path="/justifycontent" element={<JustifyContent />} />
         <Route path="/alignitem" element={<AlignItem />} />
+        <Route path="/active" element={<Active />} />
 
         {/* backend sidenavbar */}
         <Route path="/document/document" element={<Homebackend />} />
