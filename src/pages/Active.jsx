@@ -56,9 +56,7 @@ const Active = () => {
       <section className="mt-5">
         <h2 className="h4 fw-semibold mb-3">npx create react app lab problem <span className="text-primary">#</span></h2>
         <p>
-          Bootstrap has a base <code>.btn</code> class that sets up basic styles such as padding and content alignment.
-          By default, <code>.btn</code> controls have a transparent border and background color,
-          and lack any explicit focus and hover styles.
+          If your sidebar menu tab is max <code>Two</code>
         </p>
 
         {/* <div className="p-4 border rounded bg-light mt-3">
@@ -66,6 +64,17 @@ const Active = () => {
         </div> */}
 
         {/* Prism syntax-highlighted block */}
+        <div className="mt-4">
+          <pre className="language-js">
+            <code>
+{`const isActive = (path) => pathname.startsWith(path);
+`}
+            </code>
+          </pre>
+        </div>
+        <p>
+            If your sidebar menu tab is more then <code>Two</code>
+        </p>
         <div className="mt-4">
           <pre className="language-js">
             <code>
@@ -108,13 +117,45 @@ const isActive = (path) => pathname === path;
   </code>
 </pre>
 
+<p>If your sidebar is menu tab is more then <code>Two </code>Like this website to use this code</p>
+
+        </div>
+        <div className="mt-4">
+        <pre className="language-js">
+  <code>
+{`<div className="mb-4">
+  <h6 className="text-purple fw-semibold mb-2" style={{ fontSize: "0.95rem" }}>
+    <i className="bi bi-book-fill me-2 text-purple"></i>Getting started
+  </h6>
+  <ul className="list-unstyled ps-3">
+    {[
+      "Contentdss", "BrfowsersDevices", "JavaScrispt", "Webpafsck",
+      "Parcsel", "Vifte", "Accesssibility", "RfFS", "RTLs", "Conftribute"
+    ].map((item, index) => {
+      const path = \`/document/\${item.toLowerCase().replace(/\\s+/g, '')}\`;
+      return (
+        <li key={index}>
+          <Link
+            to={path}
+            className={\`d-block py-1 small text-decoration-none text-body px-2 rounded \${pathname === path ? 'bg-primary-custome text-white' : ''}\`}
+          >
+            {item}
+          </Link>
+        </li>
+      );
+    })}
+  </ul>
+</div>`}
+  </code>
+</pre>
+
 
 
         </div>
 
       </section>
       <section className="mt-5">
-        <h2 className="h4 fw-semibold mb-3">npx create react app lab problem <span className="text-primary">#</span></h2>
+        <h2 className="h4 fw-semibold mb-3">Custome Css in this sidebar active tab<span className="text-primary">#</span></h2>
         <p>
           Bootstrap has a base <code>.btn</code> class that sets up basic styles such as padding and content alignment.
           By default, <code>.btn</code> controls have a transparent border and background color,
