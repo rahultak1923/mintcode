@@ -17,6 +17,8 @@ import Flex from './pages/Flex';
 import JustifyContent from './pages/JustifyContent';
 import AlignItem from './pages/AlignItem';
 import Active from './pages/Active';
+import Mongodb from './pages/backend/Mongodb';
+import CodeRun from './pages/backend/Coderun';
 
 // LayoutWrapper for routing + sidebar logic
 function LayoutWrapper() {
@@ -61,7 +63,9 @@ function LayoutWrapper() {
 
         {/* backend sidenavbar */}
         <Route path="/backend/document" element={<Homebackend />} />
+        <Route path="/backend/coderun" element={<CodeRun />} />
         <Route path="/backend/nodejs" element={<Nodejs />} />
+        <Route path="/backend/mongodb" element={<Mongodb />} />
       </Routes>
     </div>
 

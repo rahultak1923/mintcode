@@ -24,20 +24,18 @@ const Homebackend = () => {
   return (
     <div className="container" style={{height : "89vh"}} >
       <div className="mt-2">
-        <h4 className="display-6 fw-bold mb-3">Document</h4>
+        <h4 className="display-6 fw-bold mb-3">Document <code>MongoDB</code></h4>
         <p className="lead text-muted">
-          Use CodeMint’s custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
+          Use Bootstrap’s custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
         </p>
       </div>
 
       <hr className="my-4" />
 
       <section className="mt-5">
-        <h2 className="h4 fw-semibold mb-3">Base class <span className="text-primary">#</span></h2>
+        <h2 className="h4 fw-semibold mb-3">Code Run Template <span className="text-primary">#</span></h2>
         <p>
-          CodeMint has a base <code>.btn</code> class that sets up basic styles such as padding and content alignment.
-          By default, <code>.btn</code> controls have a transparent border and background color,
-          and lack any explicit focus and hover styles.
+          If required to npm all <code>npm commands</code>
         </p>
 
         {/* <div className="p-4 border rounded bg-light mt-3">
@@ -45,60 +43,33 @@ const Homebackend = () => {
         </div> */}
 
         {/* Prism syntax-highlighted block */}
-        <div className="mt-4">
+        <div className="mt-3">
           <pre className="language-js">
             <code>
-{`// Example of Nodejs code Create User Model
-const { Schema, model } = require("mongoose");
+{`const express = require('express');
+const mongoose = require('mongoose');
+const title = require('./routes/title');
+const cors = require('cors');
 
-const userSchema = new Schema({
-    fullname:{
-        type:String,
-        required:true,
-    },
-    email:{
-        type:String,
-        required:true,
-    },
-    password:{
-        type:String,
-        required:true,
-    }
-},{timestamps:true})
+const app = express();
+app.use(cors());
+app.use(express.json());
+const PORT = 8000;
 
-const User = model('user',userSchema);
+mongoose.connect('mongodb://127.0.0.1:27017/code-mint').then(()=> console.log("MongoDB Connected")).catch((err)=> console.error("MongoDB Connected",err))
 
-module.exports = User;`}
-            </code>
-          </pre>
-        </div>
+app.use("/title",title)
 
-      </section>
-      <section className="mt-5">
-        <h2 className="h4 fw-semibold mb-3">npx create react app lab problem <span className="text-primary">#</span></h2>
-        <p>
-          CodeMint has a base <code>.btn</code> class that sets up basic styles such as padding and content alignment.
-          By default, <code>.btn</code> controls have a transparent border and background color,
-          and lack any explicit focus and hover styles.
-        </p>
-
-        {/* <div className="p-4 border rounded bg-light mt-3">
-          <button type="button" className="btn">Base class</button>
-        </div> */}
-
-        {/* Prism syntax-highlighted block */}
-        <div className="mt-4">
-          <pre className="language-js">
-            <code>
-{`
- "ajv": "^8.17.1",
+app.listen(PORT,()=>console.log(\`Server started at PORT :\${PORT}\`))
 
 `}
             </code>
           </pre>
         </div>
+    
 
       </section>
+   
         <div className="alert alert-warning mt-4" role="alert">
           If you are using the <code>.btn</code> class on its own, remember to at least define some explicit <code>:focus</code> and/or <code>:focus-visible</code> styles.
         </div>
