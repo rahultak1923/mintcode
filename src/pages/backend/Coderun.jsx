@@ -31,7 +31,46 @@ const CodeRun = () => {
       </div>
 
       <hr className="my-4" />
+   <section className="mt-5">
+        <h2 className="h4 fw-semibold mb-3">Code Run Template <span className="text-primary">#</span></h2>
+        <p>
+          If required to npm all <code>npm commands</code>
+        </p>
 
+        {/* <div className="p-4 border rounded bg-light mt-3">
+          <button type="button" className="btn">Base class</button>
+        </div> */}
+
+        {/* Prism syntax-highlighted block */}
+        <div className="mt-4">
+          <pre className="language-js">
+            <code>
+{`const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+const PORT = 8000;
+
+mongoose.connect('mongodb://127.0.0.1:27017/yourfilename')
+.then(()=> console.log("MongoDB Connected"))
+.catch((err)=> console.error("MongoDB Connected",err))
+
+app.get("/",(req,res)=>{
+  res.send("hello backend")})
+
+app.listen(PORT,()=>console.log(\`Server started at PORT :\${PORT}\`))
+
+`}
+            </code>
+          </pre>
+        </div>
+    
+
+      </section>
+   
       <section className="mt-5">
         <h2 className="h4 fw-semibold mb-3">MongoDB Connect <span className="text-primary">#</span></h2>
         <p>
@@ -139,43 +178,6 @@ const cors = require('cors');
             </code>
           </pre>
         </div>
-
-      </section>
-      <section className="mt-5">
-        <h2 className="h4 fw-semibold mb-3">Code Run Template <span className="text-primary">#</span></h2>
-        <p>
-          If required to npm all <code>npm commands</code>
-        </p>
-
-        {/* <div className="p-4 border rounded bg-light mt-3">
-          <button type="button" className="btn">Base class</button>
-        </div> */}
-
-        {/* Prism syntax-highlighted block */}
-        <div className="mt-4">
-          <pre className="language-js">
-            <code>
-{`const express = require('express');
-const mongoose = require('mongoose');
-const title = require('./routes/title');
-const cors = require('cors');
-
-const app = express();
-app.use(cors());
-app.use(express.json());
-const PORT = 8000;
-
-mongoose.connect('mongodb://127.0.0.1:27017/code-mint').then(()=> console.log("MongoDB Connected")).catch((err)=> console.error("MongoDB Connected",err))
-
-app.use("/title",title)
-
-app.listen(PORT,()=>console.log(\`Server started at PORT :\${PORT}\`))
-
-`}
-            </code>
-          </pre>
-        </div>
-    
 
       </section>
    

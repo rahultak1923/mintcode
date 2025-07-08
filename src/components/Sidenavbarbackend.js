@@ -7,6 +7,14 @@ const { pathname } = location;
 
 const isActive = (path) => pathname === path;
 
+const methodColors = {
+  get: 'text-success',   // Green
+  post: 'text-primary',  // Blue
+  delete: 'text-danger', // Red
+  put: 'text-purple'     // Purple (custom class)
+};
+
+
   return (
      <div
       className="d-flex flex-column align-items-stretch flex-shrink-0 bg-white px-3 pt-3 border-end"
@@ -20,8 +28,7 @@ const isActive = (path) => pathname === path;
           </h6>
           <ul className="list-unstyled ps-3">
             {[
-              "Document", "CodeRun","MongoDB","Nodejs",  "BrowsersDevices",
-              "JavaScript", "Webpack", "Parcel", "Vite", "Accessibility", "RFS", "RTL", "Contribute"
+              "Document", "CodeRun","MongoDB","Model","Nodejs", 
             ].map((item, index) => {
               const path = `/backend/${item.toLowerCase().replace(/\s+/g, '')}`;
               return (
@@ -44,29 +51,28 @@ const isActive = (path) => pathname === path;
 
         {/* Section 2 */}
         <div className="mb-4">
-          <h6 className="text-purple fw-semibold mb-2" style={{ fontSize: "0.95rem" }}>
-            <i className="bi bi-book-fill me-2 text-purple"></i>Getting started
+          <h6 className="text-danger fw-semibold mb-2" style={{ fontSize: "0.95rem" }}>
+            <i className="bi bi-book-fill me-2 text-danger"></i>Routers
           </h6>
-          <ul className="list-unstyled ps-3">
-            {[
-               "Contentdss", "BrfowsersDevices",
-              "JavaScrispt", "Webpafsck", "Parcsel", "Vifte", "Accesssibility", "RfFS", "RTLs", "Conftribute"
-            ].map((item, index) => {
-              const path = `/document/${item.toLowerCase().replace(/\s+/g, '')}`;
-              return (
-              <li key={index}>
-                <Link
-                  to={path}
-                  className={`d-block py-1 small text-decoration-none text-body px-2 rounded ${
-                      isActive(path) ? 'bg-primary-custome text-white' : ''
-                    }`}
-                >
-                  {item}
-                </Link>
-              </li>
-              )
-            })}
-          </ul>
+        <ul className="list-unstyled ps-3">
+  {["GET", "POST", "DELETE", "PUT"].map((item, index) => {
+    const path = `/backend/${item.toLowerCase()}`;
+    const textColor = methodColors[item.toLowerCase()];
+    const activeClass = isActive(path) ? 'bg-primary-custome text-white' : '';
+
+    return (
+      <li key={index}>
+        <Link
+          to={path}
+          className={`d-block py-1 small text-decoration-none px-2 rounded fw-bold ${textColor} ${activeClass}`}
+        >
+          {item}
+        </Link>
+      </li>
+    );
+  })}
+</ul>
+
           
     
         </div>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const Mongodb = () => {
+const Get = () => {
   useEffect(() => {
     // Add Prism CSS
     const link = document.createElement('link');
@@ -24,34 +24,18 @@ const Mongodb = () => {
   return (
     <div className="container" style={{height : "89vh"}} >
       <div className="mt-2">
-        <h4 className="display-6 fw-bold mb-3">MongoDB <code>Connnect</code></h4>
+        <h4 className="display-6 fw-bold mb-3">Model</h4>
         <p className="lead text-muted">
-          Use Bootstrap’s custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
+          Use CodeMint’s custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
         </p>
       </div>
 
       <hr className="my-4" />
 
-      <section className="mt-5">
-        <h2 className="h4 fw-semibold mb-3">MongoDB Connect <span className="text-primary">#</span></h2>
+      <section className="mt-3">
+        <h2 className="h4 fw-semibold mb-3">Nodejs model <span className="text-primary">#</span></h2>
         <p>
-         npm install mongoose.
-        </p>
-        <div className="mt-3">
-          <pre className="language-js">
-            <code>
-{`npm i mongoose
-`}
-            </code>
-          </pre>
-        </div>
-      
-
-      </section>
-      <section className="mt-5">
-        <h2 className="h4 fw-semibold mb-3">Import <span className="text-primary">#</span></h2>
-        <p>
-           import mongoose.
+          Models Nodejs used Model folder like <code>Model/user.jsx</code> 
         </p>
 
         {/* <div className="p-4 border rounded bg-light mt-3">
@@ -62,46 +46,52 @@ const Mongodb = () => {
         <div className="mt-4">
           <pre className="language-js">
             <code>
-{`const mongoose = require('mongoose');
-`}
+{`// Example of Nodejs code Create User Model
+const { Schema, model } = require("mongoose");
+
+const userSchema = new Schema({
+    fullname:{
+        type:String,
+        required:true,
+    },
+    email:{
+        type:String,
+        required:true,
+    },
+    password:{
+        type:String,
+        required:true,
+    }
+},{timestamps:true})
+
+const User = model('user',userSchema);
+
+module.exports = User;`}
             </code>
           </pre>
         </div>
-      
 
       </section>
-      <section className="mt-5">
-        <h2 className="h4 fw-semibold mb-3">Code Run Template <span className="text-primary">#</span></h2>
+      {/* <section className="mt-5">
+        <h2 className="h4 fw-semibold mb-3">npx create react app lab problem <span className="text-primary">#</span></h2>
         <p>
-          If required to npm all <code>npm commands</code>
+          CodeMint has a base <code>.btn</code> class that sets up basic styles such as padding and content alignment.
+          By default, <code>.btn</code> controls have a transparent border and background color,
+          and lack any explicit focus and hover styles.
         </p>
 
-        {/* <div className="p-4 border rounded bg-light mt-3">
-          <button type="button" className="btn">Base class</button>
-        </div> */}
-
-        {/* Prism syntax-highlighted block */}
         <div className="mt-4">
           <pre className="language-js">
             <code>
 {`
-const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://127.0.0.1:27017/yourfilename')
-.then(()=> console.log("MongoDB Connected"))
-.catch((err)=> console.error("MongoDB Connected",err))
-
-
-app.listen(PORT,()=>console.log(\`Server started at PORT :\${PORT}\`))
+ "ajv": "^8.17.1",
 
 `}
             </code>
           </pre>
         </div>
-    
 
-      </section>
-   
+      </section> */}
         <div className="alert alert-warning mt-4" role="alert">
           If you are using the <code>.btn</code> class on its own, remember to at least define some explicit <code>:focus</code> and/or <code>:focus-visible</code> styles.
         </div>
@@ -109,4 +99,4 @@ app.listen(PORT,()=>console.log(\`Server started at PORT :\${PORT}\`))
   );
 };
 
-export default Mongodb;
+export default Get;

@@ -19,6 +19,11 @@ import AlignItem from './pages/AlignItem';
 import Active from './pages/Active';
 import Mongodb from './pages/backend/Mongodb';
 import CodeRun from './pages/backend/Coderun';
+import Model from './pages/backend/Model';
+import Get from './pages/backend/Get';
+import Post from './pages/backend/Post';
+import Delete from './pages/backend/Delete';
+import Put from './pages/backend/Put';
 
 // LayoutWrapper for routing + sidebar logic
 function LayoutWrapper() {
@@ -66,6 +71,11 @@ function LayoutWrapper() {
         <Route path="/backend/coderun" element={<CodeRun />} />
         <Route path="/backend/nodejs" element={<Nodejs />} />
         <Route path="/backend/mongodb" element={<Mongodb />} />
+        <Route path="/backend/model" element={<Model />} />
+        <Route path="/backend/get" element={<Get />} />
+        <Route path="/backend/post" element={<Post />} />
+        <Route path="/backend/delete" element={<Delete />} />
+        <Route path="/backend/put" element={<Put />} />
       </Routes>
     </div>
 
