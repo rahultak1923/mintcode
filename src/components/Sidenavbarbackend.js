@@ -23,7 +23,7 @@ const isActive = (path) => pathname === path;
               "Document", "Nodejs", "Contents", "BrowsersDevices",
               "JavaScript", "Webpack", "Parcel", "Vite", "Accessibility", "RFS", "RTL", "Contribute"
             ].map((item, index) => {
-              const path = `/document/${item.toLowerCase().replace(/\s+/g, '')}`;
+              const path = `/backend/${item.toLowerCase().replace(/\s+/g, '')}`;
               return (
               <li key={index}>
                 <Link

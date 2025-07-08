@@ -22,7 +22,7 @@ import Active from './pages/Active';
 function LayoutWrapper() {
   const location = useLocation();
   const isMainPage = location.pathname === '/';
-  const isBackendPage = location.pathname.startsWith('/document');
+  const isBackendPage = location.pathname.startsWith('/backend');
 
   const [showSidebar, setShowSidebar] = useState(false); // only for left sidebar
 
@@ -60,8 +60,8 @@ function LayoutWrapper() {
         <Route path="/active" element={<Active />} />
 
         {/* backend sidenavbar */}
-        <Route path="/document/document" element={<Homebackend />} />
-        <Route path="/document/nodejs" element={<Nodejs />} />
+        <Route path="/backend/document" element={<Homebackend />} />
+        <Route path="/backend/nodejs" element={<Nodejs />} />
       </Routes>
     </div>
 

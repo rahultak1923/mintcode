@@ -94,8 +94,8 @@ const Navbar = ({ onMenuClick }) => {
   </li>
 <li className="nav-item">
     <a
-      className={`nav-link ${pathname === '/document/document' ? 'active' : ''}`}
-      href="/document/document"
+      className={`nav-link ${pathname === '/backend/document' ? 'active' : ''}`}
+      href="/backend/document"
     >
       Backend
     </a>
