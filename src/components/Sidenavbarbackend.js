@@ -76,6 +76,33 @@ const methodColors = {
           
     
         </div>
+        {/* Section 3 */}
+        <div className="mb-4">
+          <h6 className="text-danger fw-semibold mb-2" style={{ fontSize: "0.95rem" }}>
+            <i className="bi bi-book-fill me-2 text-danger"></i>Fetch API
+          </h6>
+        <ul className="list-unstyled ps-3">
+  {["GET", "POST", "DELETE", "PUT"].map((item, index) => {
+    const path = `/backend/api/${item.toLowerCase()}`;
+    const textColor = methodColors[item.toLowerCase()];
+    const activeClass = isActive(path) ? 'bg-primary-custome text-white' : '';
+
+    return (
+      <li key={index}>
+        <Link
+          to={path}
+          className={`d-block py-1 small text-decoration-none px-2 rounded fw-bold ${textColor} ${activeClass}`}
+        >
+          {item}
+        </Link>
+      </li>
+    );
+  })}
+</ul>
+
+          
+    
+        </div>
       </div>
     </div>
   )

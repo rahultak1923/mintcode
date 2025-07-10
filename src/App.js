@@ -25,6 +25,9 @@ import Post from './pages/backend/Post';
 import Delete from './pages/backend/Delete';
 import Put from './pages/backend/Put';
 
+// backend/api
+import Getapi from './pages/backend/api/Get_api';
+
 // LayoutWrapper for routing + sidebar logic
 function LayoutWrapper() {
   const location = useLocation();
@@ -76,6 +79,9 @@ function LayoutWrapper() {
         <Route path="/backend/post" element={<Post />} />
         <Route path="/backend/delete" element={<Delete />} />
         <Route path="/backend/put" element={<Put />} />
+
+        {/* backend / api */}
+        <Route path='/backend/api/get' element={<Getapi/>} />
       </Routes>
     </div>
 
