@@ -24,7 +24,7 @@ const Put = () => {
   return (
     <div className="container" style={{height : "89vh"}} >
       <div className="mt-2">
-        <h4 className="display-6 fw-bold mb-3">Model</h4>
+        <h4 className="display-6 fw-bold mb-3">Put Request</h4>
         <p className="lead text-muted">
           Use CodeMint’s custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
         </p>
@@ -33,7 +33,7 @@ const Put = () => {
       <hr className="my-4" />
 
       <section className="mt-3">
-        <h2 className="h4 fw-semibold mb-3">Nodejs model <span className="text-primary">#</span></h2>
+        <h2 className="h4 fw-semibold mb-3">Nodejs post router <span className="text-primary">#</span></h2>
         <p>
           Models Nodejs used Model folder like <code>Model/user.jsx</code> 
         </p>
@@ -46,27 +46,69 @@ const Put = () => {
         <div className="mt-4">
           <pre className="language-js">
             <code>
-{`// Example of Nodejs code Create User Model
-const { Schema, model } = require("mongoose");
-
-const userSchema = new Schema({
-    fullname:{
-        type:String,
-        required:true,
-    },
-    email:{
-        type:String,
-        required:true,
-    },
-    password:{
-        type:String,
-        required:true,
+{`router.put("/update/:id", async(req,res)=>{
+  try{
+    const titleid = req.params.id;
+    const {title, description} = req.body;
+ 
+    if(!titleid){
+      return res.status(400).json({error: "Code ID is required"})
     }
-},{timestamps:true})
 
-const User = model('user',userSchema);
+    const updatetitle = await TitleSchema.findByIdAndUpdate(titleid,{title, description},{new:true});
 
-module.exports = User;`}
+    if(!updatetitle){
+      return res.status(404).json({error:"Code is not found"})
+    }
+
+    return res.status(200).json({message:"code updated",title:updatetitle})
+  }catch(error){
+    console.log("error updating codes",error);
+    return res.status(500).json({error: "failed to update jewellery"})
+}
+})
+`}
+            </code>
+          </pre>
+        </div>
+
+      </section>
+      <section className="mt-3">
+        <h2 className="h4 fw-semibold mb-3">Nodejs Post Request <span className="text-primary">#</span></h2>
+        <p>
+          Models Nodejs used Model folder like <code>Model/user.jsx</code> 
+        </p>
+
+        {/* <div className="p-4 border rounded bg-light mt-3">
+          <button type="button" className="btn">Base class</button>
+        </div> */}
+
+        {/* Prism syntax-highlighted block */}
+        <div className="mt-4">
+          <pre className="language-js">
+            <code>
+{`router.put("/update/:id", async(req,res)=>{
+  try{
+    const titleid = req.params.id;
+    const {title, description} = req.body;
+ 
+    if(!titleid){
+      return res.status(400).json({error: "Code ID is required"})
+    }
+
+    const updatetitle = await TitleSchema.findByIdAndUpdate(titleid,{title, description},{new:true});
+
+    if(!updatetitle){
+      return res.status(404).json({error:"Code is not found"})
+    }
+
+    return res.status(200).json({message:"code updated",title:updatetitle})
+  }catch(error){
+    console.log("error updating codes",error);
+    return res.status(500).json({error: "failed to update jewellery"})
+}
+})
+`}
             </code>
           </pre>
         </div>

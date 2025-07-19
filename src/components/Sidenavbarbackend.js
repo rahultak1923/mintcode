@@ -8,6 +8,7 @@ const { pathname } = location;
 const isActive = (path) => pathname === path;
 
 const methodColors = {
+  allroutes:'text-primary',
   get: 'text-success',   // Green
   post: 'text-primary',  // Blue
   delete: 'text-danger', // Red
@@ -55,7 +56,7 @@ const methodColors = {
             <i className="bi bi-book-fill me-2 text-danger"></i>Routers
           </h6>
         <ul className="list-unstyled ps-3">
-  {["GET", "POST", "DELETE", "PUT"].map((item, index) => {
+  {["AllRoutes", "GET", "POST", "DELETE", "PUT"].map((item, index) => {
     const path = `/backend/${item.toLowerCase()}`;
     const textColor = methodColors[item.toLowerCase()];
     const activeClass = isActive(path) ? 'bg-primary-custome text-white' : '';

@@ -27,6 +27,7 @@ import Put from './pages/backend/Put';
 
 // backend/api
 import Getapi from './pages/backend/api/Get_api';
+import Allroutes from './pages/backend/Allroutes';
 
 // LayoutWrapper for routing + sidebar logic
 function LayoutWrapper() {
@@ -79,6 +80,7 @@ function LayoutWrapper() {
         <Route path="/backend/post" element={<Post />} />
         <Route path="/backend/delete" element={<Delete />} />
         <Route path="/backend/put" element={<Put />} />
+        <Route path="/backend/allroutes" element={<Allroutes />} />
 
         {/* backend / api */}
         <Route path='/backend/api/get' element={<Getapi/>} />
