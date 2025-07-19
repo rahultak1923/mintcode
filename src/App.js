@@ -24,10 +24,14 @@ import Get from './pages/backend/Get';
 import Post from './pages/backend/Post';
 import Delete from './pages/backend/Delete';
 import Put from './pages/backend/Put';
+import Allroutes from './pages/backend/Allroutes';
 
 // backend/api
 import Getapi from './pages/backend/api/Get_api';
-import Allroutes from './pages/backend/Allroutes';
+import Postapi from './pages/backend/api/Post_api';
+import Deleteapi from './pages/backend/api/Delete_api';
+import Updateapi from './pages/backend/api/Update';
+import Allapi from './pages/backend/api/All_api';
 
 // LayoutWrapper for routing + sidebar logic
 function LayoutWrapper() {
@@ -84,6 +88,10 @@ function LayoutWrapper() {
 
         {/* backend / api */}
         <Route path='/backend/api/get' element={<Getapi/>} />
+        <Route path='/backend/api/post' element={<Postapi/>} />
+        <Route path='/backend/api/delete' element={<Deleteapi/>} />
+        <Route path='/backend/api/update' element={<Updateapi/>} />
+        <Route path='/backend/api/allapi' element={<Allapi/>} />
       </Routes>
     </div>
 

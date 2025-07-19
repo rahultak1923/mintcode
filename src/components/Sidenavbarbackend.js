@@ -83,7 +83,7 @@ const methodColors = {
             <i className="bi bi-book-fill me-2 text-danger"></i>Fetch API
           </h6>
         <ul className="list-unstyled ps-3">
-  {["GET", "POST", "DELETE", "PUT"].map((item, index) => {
+  {["AllApi","GET", "POST", "DELETE", "UPDATE"].map((item, index) => {
     const path = `/backend/api/${item.toLowerCase()}`;
     const textColor = methodColors[item.toLowerCase()];
     const activeClass = isActive(path) ? 'bg-primary-custome text-white' : '';
