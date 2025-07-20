@@ -24,7 +24,7 @@ const Allapi = () => {
   return (
     <div className="container" style={{height : "89vh"}} >
       <div className="mt-2">
-        <h4 className="display-6 fw-bold mb-3">Get Request</h4>
+        <h4 className="display-6 fw-bold mb-3">Post Request</h4>
         <p className="lead text-muted">
           Use CodeMint’s custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
         </p>
@@ -33,7 +33,7 @@ const Allapi = () => {
       <hr className="my-4" />
 
       <section className="mt-3">
-        <h2 className="h4 fw-semibold mb-3">Nodejs Routers <span className="text-primary">#</span></h2>
+        <h2 className="h4 fw-semibold mb-3">Nodejs post router <span className="text-primary">#</span></h2>
         <p>
           Models Nodejs used Model folder like <code>Model/user.jsx</code> 
         </p>
@@ -46,18 +46,84 @@ const Allapi = () => {
         <div className="mt-4">
           <pre className="language-js">
             <code>
-{`const { Router } = require("express");
-const TitleSchema = require ("../models/title"); // change the models file name 
+{`export const TitleData = async()=>{
+    const response = await fetch("http://localhost:8000/title/",{
+        method:"GET",
+    });
+    return await response.json();
+}
+export const CreateTitle = async(formData)=>{
+    console.log(formData)
+    const response = await fetch("http://localhost:8000/title/add",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify(formData),
+    })
+    return await response.json();
+}
 
-const router = Router()
+export const DeleteTitle = async(titleid)=>{
+    const response = await fetch(\`http://localhost:8000/title/delete/\${titleid}\`,{method:"DELETE",});
+    return await response.json()
+}
 
-router.get("/", async(req,res)=>{
-   // change the titleschema name to your file name
-  const title = await TitleSchema.find() 
-    const Json = {title}
-    return res.json(Json)
-})
-module.exports = router
+export const UpdateTitle = async(titleid, formData)=>{
+    const response = await fetch(\`http://localhost:8000/title/update/\${titleid}\`,{method:"PUT",headers:{"Content-Type":"application/json"},
+    body: JSON.stringify(formData),
+});
+return await response.json();
+}
+`}
+            </code>
+          </pre>
+        </div>
+
+      </section>
+      <section className="mt-3">
+        <h2 className="h4 fw-semibold mb-3">Nodejs Post Request <span className="text-primary">#</span></h2>
+        <p>
+          Models Nodejs used Model folder like <code>Model/user.jsx</code> 
+        </p>
+
+        {/* <div className="p-4 border rounded bg-light mt-3">
+          <button type="button" className="btn">Base class</button>
+        </div> */}
+
+        {/* Prism syntax-highlighted block */}
+        <div className="mt-4">
+          <pre className="language-js">
+            <code>
+{`export const TitleData = async()=>{
+    const response = await fetch("http://localhost:8000/title/",{
+        method:"GET",
+    });
+    return await response.json();
+}
+export const CreateTitle = async(formData)=>{
+    console.log(formData)
+    const response = await fetch("http://localhost:8000/title/add",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify(formData),
+    })
+    return await response.json();
+}
+
+export const DeleteTitle = async(titleid)=>{
+    const response = await fetch(\`http://localhost:8000/title/delete/\${titleid}\`,{method:"DELETE",});
+    return await response.json()
+}
+
+export const UpdateTitle = async(titleid, formData)=>{
+    const response = await fetch(\`http://localhost:8000/title/update/\${titleid}\`,{method:"PUT",headers:{"Content-Type":"application/json"},
+    body: JSON.stringify(formData),
+});
+return await response.json();
+}
 `}
             </code>
           </pre>

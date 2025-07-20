@@ -24,7 +24,7 @@ const Update = () => {
   return (
     <div className="container" style={{height : "89vh"}} >
       <div className="mt-2">
-        <h4 className="display-6 fw-bold mb-3">Get Request</h4>
+        <h4 className="display-6 fw-bold mb-3">Post Request</h4>
         <p className="lead text-muted">
           Use CodeMint’s custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
         </p>
@@ -33,7 +33,7 @@ const Update = () => {
       <hr className="my-4" />
 
       <section className="mt-3">
-        <h2 className="h4 fw-semibold mb-3">Nodejs Routers <span className="text-primary">#</span></h2>
+        <h2 className="h4 fw-semibold mb-3">Nodejs post router <span className="text-primary">#</span></h2>
         <p>
           Models Nodejs used Model folder like <code>Model/user.jsx</code> 
         </p>
@@ -46,18 +46,41 @@ const Update = () => {
         <div className="mt-4">
           <pre className="language-js">
             <code>
-{`const { Router } = require("express");
-const TitleSchema = require ("../models/title"); // change the models file name 
+{`export const DeleteTitle = async (titleid, formData) => {
+  const response = await fetch(\`http://localhost:8000/title/update/\${titleid}\`
+    ,{method:"PUT",headers:{"Content-Type":"application/json"},
+    body: JSON.stringify(formData),
+});
+return await response.json();
+`}
+            </code>
+          </pre>
+        </div>
 
-const router = Router()
+      </section>
+      <section className="mt-3">
+        <h2 className="h4 fw-semibold mb-3">Nodejs Post Request <span className="text-primary">#</span></h2>
+        <p>
+          Models Nodejs used Model folder like <code>Model/user.jsx</code> 
+        </p>
 
-router.get("/", async(req,res)=>{
-   // change the titleschema name to your file name
-  const title = await TitleSchema.find() 
-    const Json = {title}
-    return res.json(Json)
+        {/* <div className="p-4 border rounded bg-light mt-3">
+          <button type="button" className="btn">Base class</button>
+        </div> */}
+
+        {/* Prism syntax-highlighted block */}
+        <div className="mt-4">
+          <pre className="language-js">
+            <code>
+{`router.delete("/delete/:id", async(req,res)=>{
+  try{
+    const titleid = req.params.id;
+    const deletedtitle = await TitleSchema.findByIdAndDelete(titleid);
+    return res.status(200).json({message:"the code is deleted", title: deletedtitle})
+  }catch(error){
+    return res.status(500).json({error: "failed to deleted code ", error})
+  }
 })
-module.exports = router
 `}
             </code>
           </pre>
