@@ -36,7 +36,7 @@ const Main = () => {
           <div className="mt-3 text-center">
 
       <h1>Build fast, Website Developement </h1>
-      <h1>with CodeMint</h1>
+      <h1>with MintCode</h1>
       <p>Powerful, extensible, and feature-packed frontend toolkit. Build and customize with Sass, utilize prebuilt grid system and components, and bring projects to life with powerful JavaScript plugins.</p>
           </div>
     </div>
