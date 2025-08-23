@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-const Sidenavbarbackend = () => {
+const Mernsidenavbar = () => {
 const location = useLocation();
 const { pathname } = location;
 
@@ -30,9 +30,9 @@ const methodColors = {
           </h6>
           <ul className="list-unstyled ps-3">
             {[
-              "Document", "CodeRun","MongoDB","Model","Nodejs", 
+              "Document", 
             ].map((item, index) => {
-              const path = `/backend/${item.toLowerCase().replace(/\s+/g, '')}`;
+              const path = `/mern/jwt/${item.toLowerCase().replace(/\s+/g, '')}`;
               return (
               <li key={index}>
                 <Link
@@ -54,11 +54,11 @@ const methodColors = {
         {/* Section 2 */}
         <div className="mb-4">
           <h6 className="text-danger fw-semibold mb-2" style={{ fontSize: "0.95rem" }}>
-            <i className="bi bi-book-fill me-2 text-danger"></i>Routers
+            <i className="bi bi-book-fill me-2 text-danger"></i>User CURD
           </h6>
         <ul className="list-unstyled ps-3">
-  {["AllRoutes", "GET", "POST", "DELETE", "PUT"].map((item, index) => {
-    const path = `/backend/${item.toLowerCase()}`;
+  {["Middleware", "GET", "POST", "DELETE", "PUT"].map((item, index) => {
+    const path = `/mern/jwt/${item.toLowerCase()}`;
     const textColor = methodColors[item.toLowerCase()];
     const activeClass = isActive(path) ? 'bg-primary-custome text-white' : '';
 
@@ -137,4 +137,4 @@ const methodColors = {
   )
 }
 
-export default Sidenavbarbackend
+export default Mernsidenavbar

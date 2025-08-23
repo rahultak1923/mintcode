@@ -32,12 +32,16 @@ import Postapi from './pages/backend/api/Post_api';
 import Deleteapi from './pages/backend/api/Delete_api';
 import Updateapi from './pages/backend/api/Update';
 import Allapi from './pages/backend/api/All_api';
+import Alljwtcode from './pages/backend/jwt/Alljwtcode';
+import Mernsidenavbar from './components/Mernsidenavbar';
+import Document from './pages/mern/jwt/Document';
 
 // LayoutWrapper for routing + sidebar logic
 function LayoutWrapper() {
   const location = useLocation();
   const isMainPage = location.pathname === '/';
   const isBackendPage = location.pathname.startsWith('/backend');
+  const isMernPage = location.pathname.startsWith('/mern')
 
   const [showSidebar, setShowSidebar] = useState(false); // only for left sidebar
 
@@ -57,9 +61,16 @@ function LayoutWrapper() {
     )}
 
     {/* LEFT Sidebar Overlay */}
-    <div className={`sidebar-overlay ${showSidebar ? 'show' : ''}`}>
-      {!isBackendPage ? <Sidenavbar /> : <Sidenavbarbackend />}
-    </div>
+<div className={`sidebar-overlay ${showSidebar ? 'show' : ''}`}>
+  {isBackendPage ? (
+    <Sidenavbarbackend />
+  ) : isMernPage ? (
+    <Mernsidenavbar />
+  ) : (
+    <Sidenavbar />
+  )}
+</div>
+
 
     {/* Main Content */}
     <div className="flex-grow-1 overflow-auto">
@@ -92,6 +103,14 @@ function LayoutWrapper() {
         <Route path='/backend/api/delete' element={<Deleteapi/>} />
         <Route path='/backend/api/update' element={<Updateapi/>} />
         <Route path='/backend/api/allapi' element={<Allapi/>} />
+
+         {/* backend / jwt */}
+         <Route path='/backend/jwt/alljwtcode' element={<Alljwtcode/>} />
+
+         {/* mern / document */}
+         <Route path='/mern/jwt/document' element={<Document/>} />
+         <Route path='/mern/jwt/middleware' element={<Document/>} />
+
       </Routes>
     </div>
 

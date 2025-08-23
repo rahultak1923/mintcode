@@ -86,7 +86,7 @@ const Navbar = ({ onMenuClick }) => {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
     <a
-      className={`nav-link ${pathname === '/home' ? 'active' : ''}`}
+      className={`nav-link ${pathname.startsWith('/home') ? 'active' : ''}`}
       href="/home"
     >
       Frontend
@@ -94,12 +94,29 @@ const Navbar = ({ onMenuClick }) => {
   </li>
 <li className="nav-item">
     <a
-      className={`nav-link ${pathname === '/backend/document' ? 'active' : ''}`}
+      className={`nav-link ${pathname.startsWith('/backend') ? 'active' : ''}`}
       href="/backend/document"
     >
       Backend
     </a>
-  </li>          </ul>
+  </li>        
+<li className="nav-item">
+    <a
+      className={`nav-link ${pathname.startsWith('/mern') ? 'active' : ''}`}
+      href="/mern/jwt/document"
+    >
+      MERN
+    </a>
+  </li>        
+<li className="nav-item">
+    <a
+      className={`nav-link ${pathname.startsWith('/Question') ? 'active' : ''}`}
+      href="/mern/jwt/document"
+    >
+      Question
+    </a>
+  </li>        
+    </ul>
 
           <form className="d-flex" role="search" onSubmit={handleSearch}>
             <input
