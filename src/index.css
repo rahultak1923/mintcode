@@ -98,3 +98,9 @@ code {
   color: #063ca3 !important;
   font-weight: 500;
 }
+@media (min-width:767px) {
+  .show-mobile{
+    display: none;
+  }
+  
+}

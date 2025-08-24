@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-const Sidenavbar = () => {
+const Sidenavbar = ({setShowSidebar}) => {
   const location = useLocation();
   const { pathname } = location;
 
@@ -25,6 +25,7 @@ const Sidenavbar = () => {
                 <li key={index}>
                   <Link
                     to={path}
+                    onClick={()=> setShowSidebar(false)}
                     className={`d-block py-1 small text-decoration-none text-body px-2 rounded ${
                       isActive(path) ? 'bg-primary-custome text-white' : ''
                     }`}

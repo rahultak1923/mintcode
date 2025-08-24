@@ -63,11 +63,11 @@ function LayoutWrapper() {
     {/* LEFT Sidebar Overlay */}
 <div className={`sidebar-overlay ${showSidebar ? 'show' : ''}`}>
   {isBackendPage ? (
-    <Sidenavbarbackend />
+    <Sidenavbarbackend setShowSidebar={setShowSidebar}/>
   ) : isMernPage ? (
-    <Mernsidenavbar />
+    <Mernsidenavbar setShowSidebar={setShowSidebar}/>
   ) : (
-    <Sidenavbar />
+    <Sidenavbar setShowSidebar={setShowSidebar}/>
   )}
 </div>
 

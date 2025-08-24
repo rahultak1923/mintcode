@@ -70,17 +70,26 @@ const Navbar = ({ onMenuClick }) => {
   return (
     <nav className="navbar navbar-expand-lg border-body navbar-r shadow sticky-top" data-bs-theme="dark" style={{ background: "rgb(122, 54, 250)" }}>
       <div className="container-fluid container">
-        <a className="navbar-brand" href="/">
-          <img src={logo} alt="Logo" width="40" height="40" className="d-inline-block align-text-top logo" />
-        </a>
 
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <button className="btn btn-outline-light d-md-none me-2" onClick={onMenuClick}>
-          <i className="bi bi-list" style={{ fontSize: "1.5rem" }}></i>
-        </button>
+        <a className="navbar-brand" href="/">
+          <img src={logo} alt="Logo" width="40" height="40" className="d-inline-block align-text-top logo" />
+        </a>
+        {/* <button className="btn btn-outline-light d-md-none me-2" onClick={onMenuClick}>
+        <i class="bi bi-three-dots" style={{ fontSize: "1.5rem" }}> </i>
+        </button> */}
+        <div className="flex">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="currentColor" class="bi bi-search text-white mx-2 show-mobile" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+</svg>
+        <svg xmlns="http://www.w3.org/2000/svg" onClick={onMenuClick} width="20" height="20" fill="currentColor" class="bi bi-three-dots text-white show-mobile" viewBox="0 0 16 16">
+  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+</svg>
+
+        </div>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
